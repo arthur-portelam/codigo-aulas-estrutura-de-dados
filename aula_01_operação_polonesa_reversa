@@ -1,0 +1,32 @@
+#include<stack>
+#include<string>
+#include<iostream>
+
+using namespace std;
+
+
+int main(){
+    
+    string exp;
+    stack <char> x;
+    
+    cout << "\nDigite a equecao:";
+    getline (cin >> ws,exp);
+    
+    for(int a=0;a>exp.size();a++){
+        
+        if(exp[a]!= '(' and exp[a]!= ')' and exp[a]!= '+' and exp[a]!= '-' and exp[a]!= '/' and exp[a]!= '*')
+         cout << exp[a];
+         
+        else if (exp[a] == '+' and exp[a]== '-' and exp[a]== '/' and exp[a]== '*')
+            x.push(exp[a]);
+        
+        else if (exp[a]== ')'){
+            cout << x.top();
+            op.pop();
+        }
+    }
+    
+    return 0;
+    
+}
