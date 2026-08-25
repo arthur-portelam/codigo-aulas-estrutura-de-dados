@@ -1,0 +1,64 @@
+#include<iostream>
+#include<queue>
+
+using namespace std;
+
+/*
+int main(){
+    
+    int n;
+    queue<int> Fila;
+    string resp;
+    
+    do {
+        cout << "\nDigite um numero: ";
+        cin >> n;
+        Fila.push(n);
+        cout << "\nJa temos : " << Fila.size() << " elementos  na fila ";
+        cout << "\nO elemento do inicio da fila e " << Fila.front();
+        cout << "\nO elemento do final da fila e " << Fila.back();
+        cout << "\nGuardar outro elemento? (sim/nao) ";
+        getline(cin >> ws,resp);
+        
+    }while(resp=="sim");
+    
+
+    cout << "\nImprimindo o conteudo da fila ";
+    while(!Fila.empty()){
+        cout << Fila.front() << " - ";
+        Fila.pop();
+    }
+    
+    return 0;
+    
+}*/
+
+
+int main(){
+    
+    string n;
+    queue<string> Fila;
+    string resp;
+    
+    do {
+        cout << "\nDigite uma palavra: ";
+        getline (cin >> ws,n);
+        Fila.push(n);
+        cout << "\nJa temos : " << Fila.size() << " elementos  na fila ";
+        cout << "\nO elemento do inicio da fila e " << Fila.front();
+        cout << "\nO elemento do final da fila e " << Fila.back();
+        cout << "\nGuardar outro elemento? (sim/nao) ";
+        getline(cin >> ws,resp);
+        
+    }while(resp=="sim");
+    
+
+    cout << "\nImprimindo o conteudo da fila ";
+    while(!Fila.empty()){
+        cout << Fila.front() << " - ";
+        Fila.pop();
+    }
+    
+    return 0;
+    
+}
