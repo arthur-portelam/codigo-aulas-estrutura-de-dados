@@ -1,0 +1,27 @@
+#include<iostream>
+#include<queue>
+
+using namespace std;
+
+
+int main(){
+    
+    int n;
+    queue<int> Fila;
+    Fila.push(1);
+    Fila.push(2);
+    Fila.push(3);
+    Fila.push(5);
+
+    cout << "\nQtd de elementos " << Fila.size();
+    cout << "\nO elemento do inicio da fila " << Fila.front();
+    cout << "\nO elemento do final da fila " << Fila.back();
+    cout << "\nImprimindo o conteudo da fila ";
+    while(!Fila.empty()){
+        cout << Fila.front();
+        Fila.pop();
+    }
+    
+    return 0;
+    
+}
