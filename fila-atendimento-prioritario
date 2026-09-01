@@ -1,0 +1,79 @@
+#include <iostream>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+
+using namespace std;
+
+class Paciente{
+    private:
+        string nome;
+        int idade;
+    public:
+        Paciente(){
+            idade=0;
+        }
+        ~Paciente(){
+        }
+        void set_dados(){
+            cout << "\nNome: ";
+            getline(cin >> ws,nome);
+            cout << "\nIdade: ";
+            cin >> idade;
+        }
+        void print_dados(){
+            cout << nome <<"    " << idade;
+        }
+         int ret_idade(){
+            return idade;
+         }
+};
+
+int main (){
+
+    deque <Paciente> consultorio;
+    deque <Paciente> maiores;
+    stack <Paciente> sup;
+    Paciente temp;
+    string resp;
+
+    do {
+        temp.set_dados();
+        if(temp.ret_idade() < 65)
+            consultorio.push_front(temp);
+        else{
+            while(maiores.empty() !=true && temp.ret_idade() > maiores.back().ret_idade()){
+                sup.push(maiores.back());
+                maiores.pop_back();
+            }  
+                maiores.push_back(temp);
+            } 
+           while (sup.empty() != true){
+                    maiores.push_back(sup.top());
+                    sup.pop();
+            }
+        cout << "\nCadastrar outro paciente? (sim/nao) ";
+        getline (cin >> ws,resp);
+    }while(resp=="sim");
+
+    cout << "\nPacientes por ordem de prioridade: \n";
+    if(maiores.empty() && consultorio.empty()){
+        cout << "\nNao ha pacientes cadastrados\n" << endl;
+    }
+    else{
+
+        while(!maiores.empty()){
+            maiores.front().print_dados();
+            cout << "\n";
+            maiores.pop_front();
+        }
+        while(!consultorio.empty()){
+            consultorio.back().print_dados();
+            cout << "\n";
+            consultorio.pop_back();
+        }
+    }
+
+    return 0;
+}
