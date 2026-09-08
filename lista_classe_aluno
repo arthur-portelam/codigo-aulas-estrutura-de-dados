@@ -1,0 +1,85 @@
+#include <iostream>
+#include <list>
+#include <string>
+
+using namespace std;
+
+class Aluno{
+  private:
+    string nome, ra;
+    
+    public:
+    Aluno(){
+        nome ="\nnao informado";
+        ra = "\nnao informado";
+    }
+    ~Aluno(){
+        
+    }
+    void set_dados(){
+        cout << "\nNome: ";
+        getline (cin >> ws,nome);
+        cout << "\nR.A";
+        getline (cin >> ws,ra);
+    }
+    
+    string ret_nome(){
+        return nome;
+    }
+    string ret_ra(){
+        return ra;
+    }
+    void print_dados(){
+        cout << nome << "   " << ra;
+    }
+};
+
+int main()
+{
+    list <Aluno> Escola, copia;
+    list <string> nomes, ra;
+    Aluno temp;
+    string resp;
+    do{
+        temp.set_dados();
+        nomes.push_back(temp.ret_nome());
+        ra.push_back(temp.ret_ra());
+
+        Escola.push_back(temp);
+        cout << "\nDeseja cadastrar outro aluno (sim/nao)? ";
+        getline (cin >> ws,resp);
+    }while (resp== "resp");
+    nomes.sort();
+    ra.sort();
+    copia = Escola;
+    
+    cout << "\nImprimindo a lista de alunos: " << endl;
+    while (!copia.empty()){
+        if(nomes.front()==copia.front().ret_nome()){
+            copia.front().print_dados();
+            copia.pop_front();
+            nomes.pop_front();
+        }
+        else{
+            copia.push_back(copia.front());
+            copia.pop_front();
+        }
+    }
+    
+    copia = Escola;
+    
+    cout << "\nImprimindo a lista de ra: " << endl;
+    while (!copia.empty()){
+        if(ra.front()==copia.front().ret_ra()){
+            copia.front().print_dados();
+            copia.pop_front();
+            ra.pop_front();
+        }
+        else{
+            copia.push_back(copia.front());
+            copia.pop_front();
+        }
+    }
+
+    return 0;
+}
