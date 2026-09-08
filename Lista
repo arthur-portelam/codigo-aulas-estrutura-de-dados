@@ -7,7 +7,7 @@ push_front(val): Adiciona um elemento no início.
 pop_back(): Remove o último elemento.
 pop_front(): Remove o primeiro elemento.
 front() / back(): Retornam referência para o primeiro ou último elemento.
-size(): Retorna o número de elementos.empty(): 
-Verifica se está vazia.
+size(): Retorna o número de elementos.
+empty(): Verifica se está vazia.
 sort(): Ordena os elementos da lista.
-reverse(): Inverte a ordem dos elementos
+reverse(): Inverte a ordem dos elementos.
