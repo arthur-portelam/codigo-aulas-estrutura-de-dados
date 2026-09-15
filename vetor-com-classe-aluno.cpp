@@ -56,7 +56,16 @@ int main()
         if (rac == Escola.at(a).ret_ra())
             Escola.erase(Escola.begin()+a);
     }
+    for(int a=0; a<Escola.size(); a++){
+        cout << a << "\t";
+        Escola.at(a).print_dados();
+        
+    }
     
+    cout << "\nDigite a posição que deseja inserir: ";
+    cin >> p;
+    temp.set_dados();
+    Escola.insert(Escola.begin()+p,temp);
     
     
     return 0;
