@@ -1,0 +1,57 @@
+#include <iostream>
+#include <deque>
+#include <string>
+
+using namespace std;
+
+class Paciente{
+    private:
+        string nome;
+        int idade;
+    public:
+        Paciente(){
+            idade=0;
+
+        }
+        ~Paciente(){
+
+        }
+        void set_dados(){
+            cout << "\nNome: ";
+            getline(cin >> ws,nome);
+            cout << "\nIdade: ";
+            cin >> idade;
+        }
+        void print_dados(){
+            cout << nome <<"    " << idade;
+        }
+         int ret_idade(){
+            return idade;
+         }
+
+};
+
+int main (){
+
+    deque <Paciente> consultorio;
+    Paciente temp;
+    string resp;
+
+    do {
+        temp.set_dados();
+        if(temp.ret_idade() < 65)
+            consultorio.push_front(temp);
+        else   
+            consultorio.push_back(temp);
+        cout << "\nCadastrar outro paciente? (sim/nao) ";
+        getline (cin >> ws,resp);
+    }while(resp=="sim");
+
+    cout << "\nImprimindo a fila\n";
+    while(!consultorio.empty()){
+        consultorio.front().print_dados();
+        consultorio.pop_front();
+    }
+
+    return 0;
+}

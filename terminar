@@ -1,0 +1,49 @@
+#include<iostream>
+#include<queue>
+#include<string>
+
+using namespace std;
+
+Aluno(){
+    private:
+        string nome,ra;
+        int idade;
+    public:
+    Aluno()
+    {
+        idade = 0;
+    }  
+    ~Aluno(){}
+}
+
+
+int main(){
+    
+    Auluno temp;
+    queue<Aluno> Escola, copia;
+    string resp,rac,res;
+    do{
+        temp.set_dados();
+        Escola.push(temp);
+        cout << "\nCadastrar outro ?(sim/nao) ";
+        getline(cin >> ws,resp);
+    }while(resp == "sim");
+    copia = Escola;
+    cout << "\nImprimindo a fila de alunos \n";
+    while(!Escola.empty()){
+        Escola.front().print_dados();
+        Escola.pop();
+    }
+    cout << "\nDigite o ra a consultar \n";
+    getline(cin >> ws,rac);
+    while(!copia.empty()){
+        if (rac == copia.front().ret_ra())
+            copia.front().print_dados();
+        copia.pop();
+        
+        getline(cin >> ws,res);
+    }while(res == "sim");
+    
+    
+    return 0;
+}

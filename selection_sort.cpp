@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(){
-    vector <int> lista = {1, 5, 3 ,8, 9, 4};
+    vector <int> lista = {1, 5, 3 ,8, 9, 4, 2};
 
     for(int i=0; i < lista.size(); i++){
         int mt=i; // meu menor numero esta em i

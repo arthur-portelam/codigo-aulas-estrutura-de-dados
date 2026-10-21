@@ -1,0 +1,8 @@
+#include<queue> // biblioteca padrão
+queue<tipo> // cria fila vazia
+fila.push(elem) // insere elem. em um extremo
+fila.pop() // remove
+fila.front() // retorna o elemento do inicio da fila
+fila.back() // retorna o elemento do final da fiça
+fila.size() //retirna a qtd. do elementos da fila
+fila.empty() // retorn 1 se vazia

@@ -1,0 +1,32 @@
+#include <iostream>
+#include <deque>
+#include <string>
+
+using namespace std;
+
+int main (){
+
+    int n;
+    string resp;
+    deque <int> dupla;
+
+    do {
+        cout << "\nEntre com um numero inteiro: ";
+        cin >> n;
+        if(n%2==0){
+            dupla.push_back(n);
+        }
+        else
+            dupla.push_front(n);
+        cout << "\nDigitar outr numero? (sim/nao)";
+        getline(cin>> ws,resp);
+    }while (resp == "sim");
+
+    while(!dupla.empty()){
+        cout << dupla.back() << "  ";
+        dupla.pop_back();
+
+    }
+
+    return 0;
+}
